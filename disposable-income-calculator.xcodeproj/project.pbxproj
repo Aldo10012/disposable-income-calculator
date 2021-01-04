@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		632A550125A38A6100D79E4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632A550025A38A6100D79E4C /* AppDelegate.swift */; };
 		632A550325A38A6100D79E4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632A550225A38A6100D79E4C /* SceneDelegate.swift */; };
-		632A550525A38A6100D79E4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632A550425A38A6100D79E4C /* ViewController.swift */; };
+		632A550525A38A6100D79E4C /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632A550425A38A6100D79E4C /* CalculateViewController.swift */; };
 		632A550825A38A6100D79E4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 632A550625A38A6100D79E4C /* Main.storyboard */; };
 		632A550A25A38A6100D79E4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 632A550925A38A6100D79E4C /* Assets.xcassets */; };
 		632A550D25A38A6100D79E4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 632A550B25A38A6100D79E4C /* LaunchScreen.storyboard */; };
+		632A551B25A3D20600D79E4C /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632A551A25A3D20600D79E4C /* ResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		632A54FD25A38A6000D79E4C /* disposable-income-calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "disposable-income-calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		632A550025A38A6100D79E4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		632A550225A38A6100D79E4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		632A550425A38A6100D79E4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		632A550425A38A6100D79E4C /* CalculateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
 		632A550725A38A6100D79E4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		632A550925A38A6100D79E4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		632A550C25A38A6100D79E4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		632A550E25A38A6100D79E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		632A551A25A3D20600D79E4C /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,8 @@
 			children = (
 				632A550025A38A6100D79E4C /* AppDelegate.swift */,
 				632A550225A38A6100D79E4C /* SceneDelegate.swift */,
-				632A550425A38A6100D79E4C /* ViewController.swift */,
+				632A550425A38A6100D79E4C /* CalculateViewController.swift */,
+				632A551A25A3D20600D79E4C /* ResultsViewController.swift */,
 				632A550625A38A6100D79E4C /* Main.storyboard */,
 				632A550925A38A6100D79E4C /* Assets.xcassets */,
 				632A550B25A38A6100D79E4C /* LaunchScreen.storyboard */,
@@ -137,9 +140,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				632A550525A38A6100D79E4C /* ViewController.swift in Sources */,
+				632A550525A38A6100D79E4C /* CalculateViewController.swift in Sources */,
 				632A550125A38A6100D79E4C /* AppDelegate.swift in Sources */,
 				632A550325A38A6100D79E4C /* SceneDelegate.swift in Sources */,
+				632A551B25A3D20600D79E4C /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalculateViewController: UIViewController {
 
     @IBOutlet weak var hourlySalaryLabel: UILabel!
     @IBOutlet weak var hoursPerDayLabel: UILabel!
@@ -23,9 +23,13 @@ class ViewController: UIViewController {
     var hourlySalary: Int = 25
     var hoursPerDay: Int = 8
     var daysPerWeek: Int = 5
-    var state: String!
+    var stateCode: String!
     var fillingStatus: String = "Single"
     
+    // variables for API
+    var federalTaxValue: Int = 0
+    var ficaTaxValue: Int = 0
+    var stateTaxValue: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,12 +80,19 @@ class ViewController: UIViewController {
     
     @IBAction func calculatePressed(_ sender: UIButton) {
         let grossIncome: Int = hourlySalary * hoursPerDay * daysPerWeek * 52
-        state = stateField.text!
+        stateCode = stateField.text!
         print(grossIncome)
-        print(state!)
+        print(stateCode!)
         print(fillingStatus)
         
-
+        self.performSegue(withIdentifier: "goToResults", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResults"{
+            let destinatinVC = segue.destination as! ResultsViewController
+        }
         
     }
     
