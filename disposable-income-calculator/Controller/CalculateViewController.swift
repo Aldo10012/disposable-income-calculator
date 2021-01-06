@@ -23,13 +23,16 @@ class CalculateViewController: UIViewController {
     var hourlySalary: Int = 25
     var hoursPerDay: Int = 8
     var daysPerWeek: Int = 5
-    var stateCode: String!
+    var grossIncome: Int = 0
+    var stateCode: String = ""
     var fillingStatus: String = "Single"
     
     // variables for API
     var federalTaxValue: Int = 0
     var ficaTaxValue: Int = 0
     var stateTaxValue: Int = 0
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,15 +77,13 @@ class CalculateViewController: UIViewController {
         sender.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         
         fillingStatus = sender.currentTitle!
-        print(fillingStatus)
-        
     }
     
     @IBAction func calculatePressed(_ sender: UIButton) {
-        let grossIncome: Int = hourlySalary * hoursPerDay * daysPerWeek * 52
+        grossIncome = hourlySalary * hoursPerDay * daysPerWeek * 52
         stateCode = stateField.text!
         print(grossIncome)
-        print(stateCode!)
+        print(stateCode)
         print(fillingStatus)
         
         self.performSegue(withIdentifier: "goToResults", sender: self)

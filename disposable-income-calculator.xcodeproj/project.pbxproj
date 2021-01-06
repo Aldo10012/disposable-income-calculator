@@ -60,14 +60,38 @@
 			children = (
 				632A550025A38A6100D79E4C /* AppDelegate.swift */,
 				632A550225A38A6100D79E4C /* SceneDelegate.swift */,
-				632A550425A38A6100D79E4C /* CalculateViewController.swift */,
-				632A551A25A3D20600D79E4C /* ResultsViewController.swift */,
-				632A550625A38A6100D79E4C /* Main.storyboard */,
+				63F3E70C25A6594A00C18BB3 /* Model */,
+				63F3E70D25A6595300C18BB3 /* View */,
+				63F3E70E25A6595A00C18BB3 /* Controller */,
 				632A550925A38A6100D79E4C /* Assets.xcassets */,
 				632A550B25A38A6100D79E4C /* LaunchScreen.storyboard */,
 				632A550E25A38A6100D79E4C /* Info.plist */,
 			);
 			path = "disposable-income-calculator";
+			sourceTree = "<group>";
+		};
+		63F3E70C25A6594A00C18BB3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		63F3E70D25A6595300C18BB3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				632A550625A38A6100D79E4C /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		63F3E70E25A6595A00C18BB3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				632A550425A38A6100D79E4C /* CalculateViewController.swift */,
+				632A551A25A3D20600D79E4C /* ResultsViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
