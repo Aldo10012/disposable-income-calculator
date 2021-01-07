@@ -23,7 +23,7 @@ class CalculateViewController: UIViewController {
     var hourlySalary: Int = 25
     var hoursPerDay: Int = 8
     var daysPerWeek: Int = 5
-    var grossIncome: Int = 0
+    var payRate: Int = 52000
     var stateCode: String = ""
     var fillingStatus: String = "Single"
     
@@ -75,25 +75,63 @@ class CalculateViewController: UIViewController {
         headOfHouseholdButton.backgroundColor = #colorLiteral(red: 0.9593952298, green: 0.9594177604, blue: 0.959405601, alpha: 1)
 
         sender.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        
         fillingStatus = sender.currentTitle!
     }
     
     @IBAction func calculatePressed(_ sender: UIButton) {
-        grossIncome = hourlySalary * hoursPerDay * daysPerWeek * 52
+        payRate = hourlySalary * hoursPerDay * daysPerWeek * 52
         stateCode = stateField.text!
-        print(grossIncome)
-        print(stateCode)
-        print(fillingStatus)
+        print("Your Income:   \(payRate)\nYour Location: \(stateCode)\nYour status:   \(fillingStatus)\n")
+
+        
+        getTaxes()
+        
         
         self.performSegue(withIdentifier: "goToResults", sender: self)
-        
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResults"{
-            let destinatinVC = segue.destination as! ResultsViewController
+            let destinationVC = segue.destination as! ResultsViewController
+            destinationVC.grossIncome = payRate
+            
         }
+    }
+    
+    
+    
+    func getTaxes(){
+        
+        // Prepare URL
+        let url = URL(string: "https://stylinandy-taxee.p.rapidapi.com/v2/calculate/2020")
+        guard let requestUrl = url else { fatalError() }
+        
+        // Prepare URL Request Object
+        var request = URLRequest(url: requestUrl)
+        request.httpMethod = "POST"
+         
+        // HTTP Request Parameters which will be sent in HTTP Request Body
+        let postString = "filing_status=single&pay_rate=80000&state=ca";
+        
+        // Set HTTP Request Body
+        request.httpBody = postString.data(using: String.Encoding.utf8);
+        
+        // Perform HTTP Request
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                
+            // Check for Error
+            if let error = error {
+                print("Error took place \(error)")
+                return
+            }
+            
+            // Convert HTTP Response Data to a String
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                print("Response data string:\n \(dataString)")
+            }
+        }
+        task.resume()
         
     }
     

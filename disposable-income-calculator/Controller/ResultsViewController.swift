@@ -8,7 +8,8 @@
 import UIKit
 
 class ResultsViewController: UIViewController {
-
+    
+    var grossIncome: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
