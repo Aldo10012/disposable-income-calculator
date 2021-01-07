@@ -110,7 +110,19 @@ class CalculateViewController: UIViewController {
         // Prepare URL Request Object
         var request = URLRequest(url: requestUrl)
         request.httpMethod = "POST"
-         
+        
+        // set http type
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let headers = [
+            "content-type": "application/x-www-form-urlencoded",
+            "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUElfS0VZX01BTkFHRVIiLCJodHRwOi8vdGF4ZWUuaW8vdXNlcl9pZCI6IjVmZjI3ODMwYzU3OGU4N2EzYmE4M2IxYSIsImh0dHA6Ly90YXhlZS5pby9zY29wZXMiOlsiYXBpIl0sImlhdCI6MTYwOTcyNjI0Nn0.XwQXLkpn41mN7XQnRcm4fq3BwA4S9F_s31QBguppBDY",
+            "x-rapidapi-key": "1b1013f78amshe4660e4e488532cp16183djsn3e15d0aa4c46",
+            "x-rapidapi-host": "stylinandy-taxee.p.rapidapi.com"
+        ]
+        request.allHTTPHeaderFields = headers
+        
         // HTTP Request Parameters which will be sent in HTTP Request Body
         let postString = "filing_status=single&pay_rate=80000&state=ca";
         
@@ -127,13 +139,47 @@ class CalculateViewController: UIViewController {
             }
             
             // Convert HTTP Response Data to a String
-            if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                print("Response data string:\n \(dataString)")
+//            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+//                print("Response data string:\n \(dataString)")
+//
+//            }
+            
+            do{
+                let taxModel = try JSONDecoder().decode(TaxModel.self, from: data!)
+                print(taxModel)
+                
+//                print("Response data:\n \(todoItemModel)")
+//                print("todoItemModel Title: \(todoItemModel.title)")
+//                print("todoItemModel id: \(todoItemModel.id ?? 0)")
+            }catch let jsonErr{
+                print(jsonErr)
             }
+            
+            
         }
         task.resume()
         
     }
     
 }
+
+struct TaxModel: Codable{
+    var annual: Annual
+}
+
+struct Annual: Codable{
+    var fica: FicaModel
+    var federal: FederalModel
+    var state: StateModel
+}
+
+struct FicaModel: Codable{
+    var amount: Double
+}
+
+struct FederalModel: Codable{
+    var amount: Double}
+
+struct StateModel: Codable{
+    var amount: Double}
 
