@@ -83,7 +83,7 @@ class CalculateViewController: UIViewController {
         case "Married":
             fillingStatus = "married"
         case "Married Separatly":
-            fillingStatus = "married_seperatly"
+            fillingStatus = "married_separately"
         case "Head of Household":
             fillingStatus = "head_of_household"
         default:
@@ -94,11 +94,12 @@ class CalculateViewController: UIViewController {
     @IBAction func calculatePressed(_ sender: UIButton) {
         payRate = hourlySalary * hoursPerDay * daysPerWeek * 52
         stateCode = stateField.text!
-        print("\nYour Income:   \(payRate)\nYour Location: \(stateCode)\nYour status:   \(fillingStatus)\n")
+        print("\n=====================")
+        print("Your Income:   \(payRate)\nYour Location: \(stateCode)\nYour status:   \(fillingStatus)\n")
 
         
         
-        getTaxes()
+        getTaxes(pay_rate: Double(payRate), state_code: stateCode, filling_status: fillingStatus)
         
         
         
@@ -116,7 +117,7 @@ class CalculateViewController: UIViewController {
     
     
     //pay_rate: Double, state_code: String, filling_status: String
-    func getTaxes(){
+    func getTaxes(pay_rate: Double, state_code: String, filling_status: String){
         
         // Prepare URL
         let url = URL(string: "https://stylinandy-taxee.p.rapidapi.com/v2/calculate/2020")
@@ -139,8 +140,8 @@ class CalculateViewController: UIViewController {
         request.allHTTPHeaderFields = headers
         
         // HTTP Request Parameters which will be sent in HTTP Request Body
-        let postString = "filing_status=single&pay_rate=80000&state=tx";
-        //let postString = "filing_status=\(filling_status)&pay_rate=\(pay_rate)&state=\(state_code)";
+        //let postString = "filing_status=single&pay_rate=80000&state=tx";
+        let postString = "filing_status=\(filling_status)&pay_rate=\(pay_rate)&state=\(state_code)";
         
         // Set HTTP Request Body
         request.httpBody = postString.data(using: String.Encoding.utf8);
