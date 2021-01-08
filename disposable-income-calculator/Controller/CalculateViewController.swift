@@ -25,7 +25,7 @@ class CalculateViewController: UIViewController {
     var daysPerWeek: Int = 5
     var payRate: Int = 52000
     var stateCode: String = ""
-    var fillingStatus: String = "Single"
+    var fillingStatus: String = "single"
     
     // variables for API
     var federalTaxValue: Int = 0
@@ -75,16 +75,31 @@ class CalculateViewController: UIViewController {
         headOfHouseholdButton.backgroundColor = #colorLiteral(red: 0.9593952298, green: 0.9594177604, blue: 0.959405601, alpha: 1)
 
         sender.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        fillingStatus = sender.currentTitle!
+        //fillingStatus = sender.currentTitle!
+        
+        switch sender.currentTitle!{
+        case "Single":
+            fillingStatus = "single"
+        case "Married":
+            fillingStatus = "married"
+        case "Married Separatly":
+            fillingStatus = "married_seperatly"
+        case "Head of Household":
+            fillingStatus = "head_of_household"
+        default:
+            print("something whent wrong")
+        }
     }
     
     @IBAction func calculatePressed(_ sender: UIButton) {
         payRate = hourlySalary * hoursPerDay * daysPerWeek * 52
         stateCode = stateField.text!
-        print("Your Income:   \(payRate)\nYour Location: \(stateCode)\nYour status:   \(fillingStatus)\n")
+        print("\nYour Income:   \(payRate)\nYour Location: \(stateCode)\nYour status:   \(fillingStatus)\n")
 
         
+        
         getTaxes()
+        
         
         
         self.performSegue(withIdentifier: "goToResults", sender: self)
@@ -100,7 +115,7 @@ class CalculateViewController: UIViewController {
     }
     
     
-    
+    //pay_rate: Double, state_code: String, filling_status: String
     func getTaxes(){
         
         // Prepare URL
@@ -124,7 +139,8 @@ class CalculateViewController: UIViewController {
         request.allHTTPHeaderFields = headers
         
         // HTTP Request Parameters which will be sent in HTTP Request Body
-        let postString = "filing_status=single&pay_rate=80000&state=ca";
+        let postString = "filing_status=single&pay_rate=80000&state=tx";
+        //let postString = "filing_status=\(filling_status)&pay_rate=\(pay_rate)&state=\(state_code)";
         
         // Set HTTP Request Body
         request.httpBody = postString.data(using: String.Encoding.utf8);
@@ -138,19 +154,17 @@ class CalculateViewController: UIViewController {
                 return
             }
             
-            // Convert HTTP Response Data to a String
-//            if let data = data, let dataString = String(data: data, encoding: .utf8) {
-//                print("Response data string:\n \(dataString)")
-//
-//            }
-            
             do{
                 let taxModel = try JSONDecoder().decode(TaxModel.self, from: data!)
-                print(taxModel)
+                print("Federal Tax: \(taxModel.annual.federal.amount)")
+                print("FICA Tax: \(taxModel.annual.fica.amount)")
+                if taxModel.annual.state.amount != nil{
+                    print("State Tax: \(taxModel.annual.state.amount!)")
+                }else{
+                    print("State Tax: \(0)")
+                }
                 
-//                print("Response data:\n \(todoItemModel)")
-//                print("todoItemModel Title: \(todoItemModel.title)")
-//                print("todoItemModel id: \(todoItemModel.id ?? 0)")
+                
             }catch let jsonErr{
                 print(jsonErr)
             }
@@ -181,5 +195,5 @@ struct FederalModel: Codable{
     var amount: Double}
 
 struct StateModel: Codable{
-    var amount: Double}
+    var amount: Double?}
 
