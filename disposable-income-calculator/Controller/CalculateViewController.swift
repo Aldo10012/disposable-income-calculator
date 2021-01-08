@@ -184,23 +184,25 @@ class CalculateViewController: UIViewController {
     }
 }
 
-struct TaxModel: Codable{
-    var annual: Annual
-}
-
-struct Annual: Codable{
-    var fica: FicaModel
-    var federal: FederalModel
-    var state: StateModel
-}
-
-struct FicaModel: Codable{
-    var amount: Double
-}
-
-struct FederalModel: Codable{
-    var amount: Double}
-
-struct StateModel: Codable{
-    var amount: Double?}
+//struct TaxModel: Codable{
+//    var annual: Annual
+//}
+//
+//struct Annual: Codable{
+//    var fica: FicaModel
+//    var federal: FederalModel
+//    var state: StateModel
+//}
+//
+//struct FicaModel: Codable{
+//    var amount: Double
+//}
+//
+//struct FederalModel: Codable{
+//    var amount: Double
+//}
+//
+//struct StateModel: Codable{
+//    var amount: Double?
+//}
 

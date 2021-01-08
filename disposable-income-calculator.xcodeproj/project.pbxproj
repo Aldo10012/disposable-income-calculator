@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		630F334C25A908E700EA8953 /* TaxModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630F334B25A908E700EA8953 /* TaxModels.swift */; };
 		632A550125A38A6100D79E4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632A550025A38A6100D79E4C /* AppDelegate.swift */; };
 		632A550325A38A6100D79E4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632A550225A38A6100D79E4C /* SceneDelegate.swift */; };
 		632A550525A38A6100D79E4C /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632A550425A38A6100D79E4C /* CalculateViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		630F334B25A908E700EA8953 /* TaxModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxModels.swift; sourceTree = "<group>"; };
 		632A54FD25A38A6000D79E4C /* disposable-income-calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "disposable-income-calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		632A550025A38A6100D79E4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		632A550225A38A6100D79E4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		63F3E70C25A6594A00C18BB3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				630F334B25A908E700EA8953 /* TaxModels.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				630F334C25A908E700EA8953 /* TaxModels.swift in Sources */,
 				632A550525A38A6100D79E4C /* CalculateViewController.swift in Sources */,
 				632A550125A38A6100D79E4C /* AppDelegate.swift in Sources */,
 				632A550325A38A6100D79E4C /* SceneDelegate.swift in Sources */,
