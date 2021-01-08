@@ -23,11 +23,13 @@ class CalculateViewController: UIViewController {
     var hourlySalary: Int = 25
     var hoursPerDay: Int = 8
     var daysPerWeek: Int = 5
+    
+    // variables to push into API
     var payRate: Int = 52000
     var stateCode: String = ""
     var fillingStatus: String = "single"
     
-    // variables for API
+    // variables to retrieve from API
     var federalTaxValue: Int = 0
     var ficaTaxValue: Int = 0
     var stateTaxValue: Int = 0
@@ -59,7 +61,6 @@ class CalculateViewController: UIViewController {
     @IBAction func hoursPerDayChanged(_ sender: Any) {
         hoursPerDay = Int(hoursPerDaySlider.value)
         hoursPerDayLabel.text = "\(hoursPerDay) hours per day"
-        
     }
     
     @IBAction func daysPerWeekChanged(_ sender: UISlider) {
@@ -97,11 +98,13 @@ class CalculateViewController: UIViewController {
         print("\n=====================")
         print("Your Income:   \(payRate)\nYour Location: \(stateCode)\nYour status:   \(fillingStatus)\n")
 
-        
-        
+        print("execute func==================")
         getTaxes(pay_rate: Double(payRate), state_code: stateCode, filling_status: fillingStatus)
+        print("finished executing============\n")
         
-        
+        print("Federal Tax: $\(federalTaxValue)")
+        print("FICA Tax:    $\(ficaTaxValue)")
+        print("State Tax:   $\(stateTaxValue)")
         
         self.performSegue(withIdentifier: "goToResults", sender: self)
     }
@@ -111,6 +114,7 @@ class CalculateViewController: UIViewController {
         if segue.identifier == "goToResults"{
             let destinationVC = segue.destination as! ResultsViewController
             destinationVC.grossIncome = payRate
+            
             
         }
     }
@@ -157,25 +161,27 @@ class CalculateViewController: UIViewController {
             
             do{
                 let taxModel = try JSONDecoder().decode(TaxModel.self, from: data!)
-                print("Federal Tax: \(taxModel.annual.federal.amount)")
-                print("FICA Tax: \(taxModel.annual.fica.amount)")
+                
+                // change values of federal, fica, and state tax values
+                self.federalTaxValue = Int(taxModel.annual.federal.amount)
+                self.ficaTaxValue = Int(taxModel.annual.fica.amount)
                 if taxModel.annual.state.amount != nil{
-                    print("State Tax: \(taxModel.annual.state.amount!)")
+                    self.stateTaxValue = Int(taxModel.annual.state.amount!)
                 }else{
-                    print("State Tax: \(0)")
+                    self.stateTaxValue = 0
                 }
                 
+                print("INTERNAL TEST:")
+                print("Federal Tax: \(self.federalTaxValue)")
+                print("FICA Tax: \(self.ficaTaxValue)")
+                print("State Tax: \(self.stateTaxValue)")
                 
             }catch let jsonErr{
                 print(jsonErr)
             }
-            
-            
         }
         task.resume()
-        
     }
-    
 }
 
 struct TaxModel: Codable{
