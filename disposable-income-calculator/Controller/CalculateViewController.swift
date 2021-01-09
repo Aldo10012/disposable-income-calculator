@@ -100,13 +100,13 @@ class CalculateViewController: UIViewController {
 
         print("execute func==================")
         getTaxes(pay_rate: Double(payRate), state_code: stateCode, filling_status: fillingStatus)
-        print("finished executing============\n")
+//        print("finished executing============\n")
+//
+//        print("Federal Tax: $\(federalTaxValue)")
+//        print("FICA Tax:    $\(ficaTaxValue)")
+//        print("State Tax:   $\(stateTaxValue)\n")
         
-        print("Federal Tax: $\(federalTaxValue)")
-        print("FICA Tax:    $\(ficaTaxValue)")
-        print("State Tax:   $\(stateTaxValue)\n")
-        
-        self.performSegue(withIdentifier: "goToResults", sender: self)
+       
     }
     
     
@@ -176,12 +176,16 @@ class CalculateViewController: UIViewController {
                 print("Federal Tax: \(self.federalTaxValue)")
                 print("FICA Tax: \(self.ficaTaxValue)")
                 print("State Tax: \(self.stateTaxValue)")
+                print("finished executing")
+                DispatchQueue.main.async{
+                    self.performSegue(withIdentifier: "goToResults", sender: self)
+                }
                 
             }catch let jsonErr{
                 print(jsonErr)
             }
         }
-        task.resume()
+        task.resume()// how it starts
     }
 }
 
