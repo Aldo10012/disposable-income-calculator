@@ -10,10 +10,19 @@ import UIKit
 class ResultsViewController: UIViewController {
     
     var grossIncome: Int = 0
+    var federalTax: Int = 0
+    var ficaTax: Int = 0
+    var stateTax: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        print("\nValues in ResultsViewController")
+        print("federal tax \(federalTax) ")
+        print("fica tax \(ficaTax) ")
+        print("state tax \(stateTax) ")
     }
     
     @IBAction func recalculatePressed(_ sender: UIButton) {

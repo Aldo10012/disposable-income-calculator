@@ -104,7 +104,7 @@ class CalculateViewController: UIViewController {
         
         print("Federal Tax: $\(federalTaxValue)")
         print("FICA Tax:    $\(ficaTaxValue)")
-        print("State Tax:   $\(stateTaxValue)")
+        print("State Tax:   $\(stateTaxValue)\n")
         
         self.performSegue(withIdentifier: "goToResults", sender: self)
     }
@@ -114,8 +114,9 @@ class CalculateViewController: UIViewController {
         if segue.identifier == "goToResults"{
             let destinationVC = segue.destination as! ResultsViewController
             destinationVC.grossIncome = payRate
-            
-            
+            destinationVC.federalTax = federalTaxValue
+            destinationVC.ficaTax = ficaTaxValue
+            destinationVC.stateTax = stateTaxValue
         }
     }
     
@@ -171,7 +172,7 @@ class CalculateViewController: UIViewController {
                     self.stateTaxValue = 0
                 }
                 
-                print("INTERNAL TEST:")
+                print("\nINTERNAL TEST:")
                 print("Federal Tax: \(self.federalTaxValue)")
                 print("FICA Tax: \(self.ficaTaxValue)")
                 print("State Tax: \(self.stateTaxValue)")
