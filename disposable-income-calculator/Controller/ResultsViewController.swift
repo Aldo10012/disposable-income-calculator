@@ -9,10 +9,10 @@ import UIKit
 
 class ResultsViewController: UIViewController {
     
-    var grossIncome: Int = 0
-    var federalTax: Int = 0
-    var ficaTax: Int = 0
-    var stateTax: Int = 0
+    var grossIncome: Double = 0
+    var federalTax: Double = 0
+    var ficaTax: Double = 0
+    var stateTax: Double = 0
     var payPeriod: String = "year"
     
     @IBOutlet weak var netIncomeLabel: UILabel!
@@ -67,11 +67,11 @@ class ResultsViewController: UIViewController {
     
     func updateUI(){
         payPeriodLabel.text = "per \(payPeriod)"
-        netIncomeLabel.text = "$\(grossIncome - federalTax - ficaTax - stateTax)"
-        grossIncomeLabel.text = "$\(grossIncome)"
-        federalTaxLabel.text = "- $\(federalTax)"
-        ficaTaxLabel.text = "- $\(ficaTax)"
-        stateTaxLabel.text = "- $\(stateTax)"
+        netIncomeLabel.text = "$\(Int(grossIncome - federalTax - ficaTax - stateTax))"
+        grossIncomeLabel.text = "$\(Int(grossIncome))"
+        federalTaxLabel.text = "- $\(Int(federalTax))"
+        ficaTaxLabel.text = "- $\(Int(ficaTax))"
+        stateTaxLabel.text = "- $\(Int(stateTax))"
     }
     
     /*

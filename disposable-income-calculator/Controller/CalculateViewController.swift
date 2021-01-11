@@ -119,10 +119,10 @@ class CalculateViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResults"{
             let destinationVC = segue.destination as! ResultsViewController
-            destinationVC.grossIncome = payRate
-            destinationVC.federalTax = federalTaxValue
-            destinationVC.ficaTax = ficaTaxValue
-            destinationVC.stateTax = stateTaxValue
+            destinationVC.grossIncome = Double(payRate)
+            destinationVC.federalTax = Double(federalTaxValue)
+            destinationVC.ficaTax = Double(ficaTaxValue)
+            destinationVC.stateTax = Double(stateTaxValue)
         }
     }
     
