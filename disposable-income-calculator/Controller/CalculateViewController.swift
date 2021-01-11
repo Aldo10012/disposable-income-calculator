@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import UserNotifications
+
 
 class CalculateViewController: UIViewController {
 
@@ -95,18 +97,22 @@ class CalculateViewController: UIViewController {
     @IBAction func calculatePressed(_ sender: UIButton) {
         payRate = hourlySalary * hoursPerDay * daysPerWeek * 52
         stateCode = stateField.text!
-        print("\n=====================")
-        print("Your Income:   \(payRate)\nYour Location: \(stateCode)\nYour status:   \(fillingStatus)\n")
-
-        print("execute func==================")
-        getTaxes(pay_rate: Double(payRate), state_code: stateCode, filling_status: fillingStatus)
-//        print("finished executing============\n")
-//
-//        print("Federal Tax: $\(federalTaxValue)")
-//        print("FICA Tax:    $\(ficaTaxValue)")
-//        print("State Tax:   $\(stateTaxValue)\n")
         
-       
+        print("\n=====================")
+        // chacking if valid state field is entered
+        switch stateField.text{
+        case "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY":
+            print("You entered a valid state code")
+            print("Your Income:   \(payRate)\nYour Location: \(stateCode)\nYour status:   \(fillingStatus)\nexecute func==================")
+            getTaxes(pay_rate: Double(payRate), state_code: stateCode, filling_status: fillingStatus)
+        case "":
+            print("nothing entered")
+            alert()
+            
+        default:
+            print("invalid")
+            alert()
+        }
     }
     
     
@@ -186,6 +192,12 @@ class CalculateViewController: UIViewController {
             }
         }
         task.resume()// how it starts
+    }
+    
+    func alert(){
+        let alert = UIAlertController(title: "Missing information", message: "Please enter a valid state code \n(CA, NY, TX, etc.)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
     }
 }
 
