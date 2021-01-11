@@ -25,13 +25,9 @@ class ResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
-        print("\nValues in ResultsViewController")
-        print("federal tax \(federalTax) ")
-        print("fica tax \(ficaTax) ")
-        print("state tax \(stateTax) ")
+        let font = UIFont.systemFont(ofSize: 20)
+        payPeriodSegmentControler.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
         
         updateUI()
     }
@@ -39,7 +35,6 @@ class ResultsViewController: UIViewController {
     @IBAction func payPeriodSegmentChanged(_ sender: UISegmentedControl) {
         switch payPeriodSegmentControler.selectedSegmentIndex{
         case 0:
-            print("annual is selected")
             grossIncome *= 12
             federalTax *= 12
             ficaTax *= 12
@@ -48,7 +43,6 @@ class ResultsViewController: UIViewController {
             updateUI()
             
         case 1:
-            print("monthly is selected")
             grossIncome /= 12
             federalTax /= 12
             ficaTax /= 12
@@ -73,15 +67,5 @@ class ResultsViewController: UIViewController {
         ficaTaxLabel.text = "- $\(Int(ficaTax))"
         stateTaxLabel.text = "- $\(Int(stateTax))"
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

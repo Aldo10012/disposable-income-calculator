@@ -272,6 +272,17 @@
                                         <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="o14-hr-HVL">
+                                        <rect key="frame" x="115" y="239" width="186" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="annual"/>
+                                            <segment title="monthly"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="payPeriodSegmentChanged:" destination="ImZ-ta-VgW" eventType="valueChanged" id="985-kT-Jwe"/>
+                                        </connections>
+                                    </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="per year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="077-6h-BH2">
                                         <rect key="frame" x="132" y="173" width="150" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -397,17 +408,6 @@
                                     <constraint firstItem="o9F-hu-U9O" firstAttribute="centerX" secondItem="4pv-fX-xnY" secondAttribute="centerX" id="wTg-vv-18e"/>
                                 </constraints>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="o14-hr-HVL">
-                                <rect key="frame" x="138" y="240" width="139" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="annual"/>
-                                    <segment title="monthly"/>
-                                </segments>
-                                <connections>
-                                    <action selector="payPeriodSegmentChanged:" destination="ImZ-ta-VgW" eventType="valueChanged" id="985-kT-Jwe"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="osb-pp-LSK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

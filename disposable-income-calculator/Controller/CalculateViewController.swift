@@ -98,19 +98,15 @@ class CalculateViewController: UIViewController {
         payRate = hourlySalary * hoursPerDay * daysPerWeek * 52
         stateCode = stateField.text!
         
-        print("\n=====================")
         // chacking if valid state field is entered
         switch stateField.text{
         case "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY":
-            print("You entered a valid state code")
-            print("Your Income:   \(payRate)\nYour Location: \(stateCode)\nYour status:   \(fillingStatus)\nexecute func==================")
+            
             getTaxes(pay_rate: Double(payRate), state_code: stateCode, filling_status: fillingStatus)
         case "":
-            print("nothing entered")
             alert()
             
         default:
-            print("invalid")
             alert()
         }
     }
@@ -178,11 +174,6 @@ class CalculateViewController: UIViewController {
                     self.stateTaxValue = 0
                 }
                 
-                print("\nINTERNAL TEST:")
-                print("Federal Tax: \(self.federalTaxValue)")
-                print("FICA Tax: \(self.ficaTaxValue)")
-                print("State Tax: \(self.stateTaxValue)")
-                print("finished executing")
                 DispatchQueue.main.async{
                     self.performSegue(withIdentifier: "goToResults", sender: self)
                 }
