@@ -14,6 +14,12 @@ class ResultsViewController: UIViewController {
     var ficaTax: Int = 0
     var stateTax: Int = 0
     
+    @IBOutlet weak var netIncomeLabel: UILabel!
+    @IBOutlet weak var grossIncomeLabel: UILabel!
+    @IBOutlet weak var federalTaxLabel: UILabel!
+    @IBOutlet weak var ficaTaxLabel: UILabel!
+    @IBOutlet weak var stateTaxLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +29,12 @@ class ResultsViewController: UIViewController {
         print("federal tax \(federalTax) ")
         print("fica tax \(ficaTax) ")
         print("state tax \(stateTax) ")
+        
+        netIncomeLabel.text = "$\(grossIncome - federalTax - ficaTax - stateTax)"
+        grossIncomeLabel.text = "$\(grossIncome)"
+        federalTaxLabel.text = "- $\(federalTax)"
+        ficaTaxLabel.text = "- $\(ficaTax)"
+        stateTaxLabel.text = "- $\(stateTax)"
     }
     
     @IBAction func recalculatePressed(_ sender: UIButton) {
