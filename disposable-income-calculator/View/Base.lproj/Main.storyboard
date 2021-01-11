@@ -265,17 +265,17 @@
                                         <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="per year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="077-6h-BH2">
-                                        <rect key="frame" x="163" y="173" width="89" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
-                                        <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$44477" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4I-CB-I3b">
                                         <rect key="frame" x="57" y="112" width="300" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
+                                        <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="per year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="077-6h-BH2">
+                                        <rect key="frame" x="132" y="173" width="150" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
                                         <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -404,6 +404,9 @@
                                     <segment title="annual"/>
                                     <segment title="monthly"/>
                                 </segments>
+                                <connections>
+                                    <action selector="payPeriodSegmentChanged:" destination="ImZ-ta-VgW" eventType="valueChanged" id="985-kT-Jwe"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="osb-pp-LSK"/>
@@ -428,6 +431,8 @@
                         <outlet property="ficaTaxLabel" destination="5uT-BD-Dkp" id="AZj-SB-m0Y"/>
                         <outlet property="grossIncomeLabel" destination="uuL-np-rL8" id="iZk-oF-m21"/>
                         <outlet property="netIncomeLabel" destination="V4I-CB-I3b" id="dwG-le-CAt"/>
+                        <outlet property="payPeriodLabel" destination="077-6h-BH2" id="yWn-3v-Dmi"/>
+                        <outlet property="payPeriodSegmentControler" destination="o14-hr-HVL" id="pud-4P-Tyr"/>
                         <outlet property="stateTaxLabel" destination="BOI-Re-H8h" id="km4-dL-3Jp"/>
                     </connections>
                 </viewController>
