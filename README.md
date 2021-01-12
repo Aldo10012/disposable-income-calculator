@@ -44,8 +44,8 @@ No additional installations required, simply print this command onto your termin
 
 ### Screeneshots
 
-![](./Images/calculateVC)
-![](./Images/resultsVC)
+![](./Images/calculateVC.png)
+![](./Images/resultsVC.png)
 
 
 
