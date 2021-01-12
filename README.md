@@ -42,17 +42,15 @@ No additional installations required, simply print this command onto your termin
   git clone https://github.com/Aldo10012/disposable-income-calculator.git
 ```
 
+#### API Reference
+
+In order to make successful API call, you must first signup to [RapidAPI](https://rapidapi.com/stylinandy/api/taxee/) and [Taxee](https://taxee.io/) and use your own personal API keys.
+
 ### Screeneshots
 
 ![](./Images/calculateVC.png)
 ![](./Images/resultsVC.png)
 
-
-
-
-#### API Reference
-
-In order to make successful API call, you must first signup to [RapidAPI](https://rapidapi.com/stylinandy/api/taxee/) and [Taxee](https://taxee.io/) and use your own personal API keys.
 
 [Back To The Top](#read-me-template)
 
