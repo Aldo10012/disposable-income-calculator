@@ -5,16 +5,6 @@
 
 ---
 
-### Table of Contents
-
-- [Description](#description)
-- [How To Use](#how-to-use)
-- [References](#references)
-- [License](#license)
-- [Author Info](#author-info)
-
----
-
 ## Description
 
 Disposable Income Calcuator provides details on your taxes (Federal, FICA, & State) based on your income, location, and filling status, and also provides your disposable income, or how much money you take home post taxes.
@@ -48,11 +38,7 @@ In order to make successful API call, you must first signup to [RapidAPI](https:
 
 ### Screeneshots
 
-![](./Images/calculateVC.png)
-![](./Images/resultsVC.png)
-
-
-[Back To The Top](#read-me-template)
+<img src="Images/calculateVC.png" width=32%> <img src="Images/resultsVC.png" width=32%>
 
 ---
 
